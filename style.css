@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a6a6a6;
+  padding: 20px 30px;
+  width: 100%;
+}
+
+header img {
+  position: absolute;
+  left: 70px;
+  max-width: 60px;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.tarefa-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.tarefa-box {
+  width: 45%;
+  background-color: #fff;
+  padding: 20px;
+  background-color: #a6a6a6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarefa-box h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.lista-tarefa{
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista-tarefa li {
+  padding: 10px;
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lista-tarefa li:hover {
+  background-color: #cccccc;
+}
+
+.add-tarefa-form {
+  display: flex;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.add-tarefa-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-tarefa-form button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 1.5em;
+  background-color: #3ca0fc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-tarefa-form button:hover {
+  background-color: #2383db;
+}
