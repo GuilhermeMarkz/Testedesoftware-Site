@@ -5,34 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskFlow</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/SGT/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="icone">
+    <img src="https://cdn.icon-icons.com/icons2/1075/PNG/512/1484271199-list_77857.png" alt="icone" class="icon-header">
     <h1>TaskFlow</h1>
   </header>
 
-  <div class="add-tarefa-form">
-    <input type="text" id="tarefa-input" placeholder="Adicionar nova tarefa">
-  <button onclick="">+</button>
-  </div>
+  <form id="tarefa-form" class="add-tarefa-form">
+    <label for="tarefa">Nome da Tarefa:</label>
+    <input type="text" id="tarefa" placeholder="Nome da Tarefa" required>
+
+    <label for="data">Data de Conclusão:</label>
+    <input type="date" id="data" required>
+
+    <button type="submit">Adicionar Tarefa</button>
+  </form>
 
   <div class="tarefa-container">
-    <div class="tarefa-box">
+    <div id="tarefa-pendente" class="tarefa-box">
       <h2>Tarefas Pendentes</h2>
-      <ul id="tarefa-pendente" class="lista-tarefa"></ul>
+      <ul class="lista-tarefa"></ul>
     </div>
 
-    <div class="tarefa-box">
-      <h2>Tarefas Completas</h2>
-      <ul id="tarefa-completa" class="lista-tarefa"></ul>
+    <div id="tarefa-completa" class="tarefa-box">
+      <h2>Tarefas Concluídas</h2>
+      <ul class="lista-tarefa"></ul>
     </div>
   </div>
+
+  <script src="index.js"></script>
 </body>
 
 </html>
