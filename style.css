@@ -6,15 +6,14 @@
 }
 
 body {
-  background-image: linear-gradient(to right, rgb(56, 41, 255), rgb(129, 32, 255));
-  background-color: rgb(114, 32, 255);
+  background-color: #72BF78;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 header {
-  background-color: #ffffff;
+  background-color: #A0D683 ;
   width: 100%;
   text-align: center;
   padding: 20px;
@@ -57,14 +56,14 @@ h1 {
 }
 
 .add-tarefa-form button {
-  background-color: #36cf3b;
-  color: white;
+  background-color: #D3EE98;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
 }
 
 .add-tarefa-form button:hover {
-  background-color: #45a049;
+  background-color: #b6d672;
 }
 
 .tarefa-container {
@@ -176,7 +175,7 @@ h1 {
 }
 
 footer {
-  background-color: #ffffff;
+  background-color: #A0D683;
   color: black;
   width: 100%;
   height: 10%px;
