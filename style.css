@@ -6,8 +6,8 @@
 }
 
 body {
-  background-image: linear-gradient(to right, rgb(56, 41, 255) , rgb(129, 32, 255));
-  background-color:rgb(114, 32, 255);
+  background-image: linear-gradient(to right, rgb(56, 41, 255), rgb(129, 32, 255));
+  background-color: rgb(114, 32, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,7 +99,6 @@ h1 {
 .lista-tarefa {
   list-style-type: none;
   padding: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .lista-tarefa li {
@@ -114,6 +113,23 @@ h1 {
 
 .lista-tarefa li span {
   flex: 1;
+}
+
+.tarefaInput,
+.dataInput {
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-right: 9px;
+  flex: 1;
+}
+
+.tarefaInput:focus,
+.dataInput:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .lista-tarefa li button {
@@ -144,4 +160,53 @@ h1 {
 
 .lista-tarefa li .edit-btn:hover {
   background-color: #bc5a04;
+}
+
+#delete-all-completed {
+  background-color: #dd3f3b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#delete-all-completed:hover {
+  background-color: #971d1d;
+}
+
+footer {
+  background-color: #ffffff;
+  color: black;
+  width: 100%;
+  height: 10%px;
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .add-tarefa-form {
+    width: 95%;
+  }
+
+  .tarefa-container {
+    flex-direction: column;
+  }
+
+  .tarefa-box {
+    margin: 5px 0;
+  }
 }

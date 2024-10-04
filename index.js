@@ -45,9 +45,7 @@ function savetarefa(tarefa) {
 function rendertarefas() {
   const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
   const pendingList = document.querySelector("#tarefa-pendente .lista-tarefa");
-  const completedList = document.querySelector(
-    "#tarefa-completa .lista-tarefa"
-  );
+  const completedList = document.querySelector("#tarefa-completa .lista-tarefa");
   pendingList.innerHTML = "";
   completedList.innerHTML = "";
 
@@ -64,7 +62,7 @@ function rendertarefas() {
       <button onclick="deletetarefa(${index})">Excluir</button>
       ${
         !tarefa.completed
-        ? `<button class="edit-btn" onclick="editartarefa(${index})">Editar</button>`
+          ? `<button class="edit-btn" onclick="editartarefa(${index})">Editar</button>`
           : ""
       }
     `;
@@ -90,8 +88,8 @@ function editartarefa(index) {
   const dataFormatada = data.replace(")", "");
 
   tarefaSpan.innerHTML = `
-    <input type="text" value="${nome}" id="tarefaInput${index}">
-    <input type="date" value="${dataFormatada}" id="dataInput${index}">
+    <input type="text" value="${nome}" id="tarefaInput${index}" class="tarefaInput">
+    <input type="date" value="${dataFormatada}" id="dataInput${index}" class="dataInput">
   `;
 
   const editButton = tarefaSpan.nextElementSibling; // Seleciona o botão de editar
@@ -109,20 +107,44 @@ function deletetarefa(index) {
 function salvarTarefa(index) {
   const tarefaInput = document.getElementById(`tarefaInput${index}`).value;
   const dataInput = document.getElementById(`dataInput${index}`).value;
+  const today = new Date();
+  const tarefaDateObj = new Date(dataInput);
 
+  // Verificação de campos vazios
+  if (!tarefaInput || !dataInput) {
+    alert("Por favor, preencha todos os campos!");
+    return;
+  }
+
+  // Verificação de data válida
+  if (tarefaDateObj < today) {
+    alert("Por favor, insira uma data válida");
+    return;
+  }
+
+  let tarefas = JSON.parse(localStorage.getItem("tarefas")); // Certifique-se de obter a lista de tarefas
   tarefas[index].name = tarefaInput;
-  tarefas[index].date = dataInput;
-
+  tarefas[index].date = formatDate(dataInput); // Mantenha o formato de data consistente
 
   const tarefaSpan = document.getElementById(`tarefaSpan${index}`);
-  tarefaSpan.innerHTML = `${tarefaInput} (${dataInput})`;
-
+  tarefaSpan.innerHTML = `${tarefaInput} (${formatDate(dataInput)})`; // Atualiza a exibição
 
   const editButton = tarefaSpan.nextElementSibling;
   editButton.innerText = "Editar";
   editButton.setAttribute("onclick", `editartarefa(${index})`);
 
-  savetarefa(tarefa);
+  localStorage.setItem("tarefas", JSON.stringify(tarefas)); // Salva as tarefas atualizadas
+  rendertarefas(); // Atualiza a lista renderizada
+}
+
+function deletarTodasConcluidas() {
+  if (confirm("Você tem certeza que deseja excluir todas as tarefas concluídas?")) {
+    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    // Filtra as tarefas para manter apenas as não concluídas
+    tarefas = tarefas.filter(tarefa => !tarefa.completed);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    rendertarefas(); // Atualiza a lista renderizada
+  }
 }
 
 function loadtarefas() {
